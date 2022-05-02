@@ -17,3 +17,14 @@ docker run kit/sample-batch:latest hello
 ```
 Dockerイメージはマルチステージビルドで軽量化した。  
 [Go製ツールをDockerイメージ化する](https://zenn.dev/kyoh86/articles/0561dd14d9dc1e572427)
+
+## ECRへpush
+[【AWS】ECRの使い方とは？DockerイメージをECRにpushしてみる](https://engineer-ninaritai.com/aws-ecr-use/)
+
+`aws ecr get-login-password` コマンド実行時に以下のエラーが出た場合
+```
+An error occurred (AccessDeniedException) when calling the GetAuthorizationToken operation: User: arn:aws:iam::XXXXXXXXX:user/XXXXX is not authorized to perform: ecr:GetAuthorizationToken on resource: * because no identity-based policy allows the ecr:GetAuthorizationToken action
+```
+[AWS ECRでAccessDeniedExceptionが発生したときの解決法 - Qiita](https://qiita.com/yuki_0920/items/d78f5bd3c14c4dd12774)
+
+IAMのユーザーグループに `AmazonEC2ContainerRegistryPowerUser` のポリシーを追加して `aws configure` でIAMのアクセスキー情報を設定した。
