@@ -1,4 +1,6 @@
 # go-batch-sandbox
+[![deployment](https://github.com/bigro/go-batch-sandbox/actions/workflows/deploy.yaml/badge.svg)](https://github.com/bigro/go-batch-sandbox/actions/workflows/deploy.yaml)
+
 ECS on Fargateでバッチを起動させStep Functionsで管理するのを試すためのリポジトリ
 
 ## フレームワーク
