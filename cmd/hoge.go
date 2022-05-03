@@ -6,6 +6,8 @@ package cmd
 
 import (
 	"fmt"
+	"math/rand"
+	"time"
 
 	"github.com/spf13/cobra"
 )
@@ -21,6 +23,10 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
+		rand.Seed(time.Now().UnixNano())
+		if rand.Intn(10) < 5 {
+			panic("バッチ処理が失敗しました")
+		}
 		fmt.Println("hoge called")
 	},
 }
