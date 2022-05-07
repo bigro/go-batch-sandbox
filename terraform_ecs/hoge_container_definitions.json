@@ -1,0 +1,9 @@
+[
+  {
+    "name": "hoge-container",
+    "image": "${image}",
+    "essential": true,
+    "memory": 128,
+    "command": ["hoge"]
+  }
+]
