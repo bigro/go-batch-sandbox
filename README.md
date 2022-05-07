@@ -30,3 +30,16 @@ An error occurred (AccessDeniedException) when calling the GetAuthorizationToken
 [AWS ECRでAccessDeniedExceptionが発生したときの解決法 - Qiita](https://qiita.com/yuki_0920/items/d78f5bd3c14c4dd12774)
 
 IAMのユーザーグループに `AmazonEC2ContainerRegistryPowerUser` のポリシーを追加して `aws configure` でIAMのアクセスキー情報を設定した。
+
+## TerraformでAWSサービスの構築
+最初に1回だけ実行
+```
+cd terraform
+terraform init
+```
+更新毎に
+```
+cd terraform
+terraform plan
+terraform apply
+```
