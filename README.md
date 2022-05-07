@@ -31,6 +31,13 @@ An error occurred (AccessDeniedException) when calling the GetAuthorizationToken
 
 IAMのユーザーグループに `AmazonEC2ContainerRegistryPowerUser` のポリシーを追加して `aws configure` でIAMのアクセスキー情報を設定した。
 
+### Github Actionsで自動化
+GithubSecretsに以下の値を設定する。
+- AWS_ACCESS_KEY_ID
+- AWS_SECRET_ACCESS_KEY
+- AWS_ECR_REGION
+- AWS_ECR_REPO_NAME
+
 ## TerraformでAWSサービスの構築
 最初に1回だけ実行
 ```
