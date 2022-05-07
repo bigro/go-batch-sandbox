@@ -39,14 +39,33 @@ GithubSecretsに以下の値を設定する。
 - AWS_ECR_REPO_NAME
 
 ## TerraformでAWSサービスの構築
+### ECR
 最初に1回だけ実行
 ```
-cd terraform
+cd terraform_ecr
 terraform init
 ```
 更新毎に
 ```
-cd terraform
+cd terraform_ecr
+terraform plan
+terraform apply
+```
+
+### ECS
+作成したECSリポジトリのURIを `vars.tfvars` を作成して記載する。
+```
+image-uri = "XXXXX"
+```
+Terraformを実行する  
+最初に1回だけ実行
+```
+cd terraform_ecs
+terraform init
+```
+更新毎に
+```
+cd terraform_ecs
 terraform plan
 terraform apply
 ```
