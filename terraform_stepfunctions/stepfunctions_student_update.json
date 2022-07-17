@@ -1,0 +1,37 @@
+{
+  "Comment": "Hoge処理を実行します",
+  "StartAt": "HogeBatch",
+  "States": {
+    "HogeBatch": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::ecs:runTask.sync",
+      "Parameters": {
+        "LaunchType": "FARGATE",
+        "Cluster": "${cluster-arn}",
+        "TaskDefinition": "${task-arn}",
+        "NetworkConfiguration": {
+          "AwsvpcConfiguration": {
+            "Subnets": [
+              "${subnet-id}"
+            ],
+            "SecurityGroups": [
+              "${security-group-id}"
+            ],
+            "AssignPublicIp": "ENABLED"
+          }
+        }
+      },
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "IntervalSeconds": 5,
+          "MaxAttempts": 2,
+          "BackoffRate": 2
+        }
+      ],
+      "End": true
+    }
+  }
+}

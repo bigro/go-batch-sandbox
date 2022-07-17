@@ -10,7 +10,7 @@ data "aws_iam_policy_document" "assume_role" {
 }
 
 resource "aws_iam_role" "ecs_task_execution_role" {
-  name               = "MyEcsTaskRole"
+  name               = "EcsTaskRoleForSFn"
   assume_role_policy = data.aws_iam_policy_document.assume_role.json
 }
 
